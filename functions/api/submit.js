@@ -10,3 +10,4 @@ export async function onRequestPost(context) {
     return new Response("Error parsing JSON content", { status: 400 });
   }
 }
+export default onRequestPost;
