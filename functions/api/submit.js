@@ -4,7 +4,7 @@ export async function onRequestPost(context) {
     let input = await context.request.formData();
 
     // Created with ChatGPT
-    const apiKey = context.env.OPENAI_API_KEY;
+    const apiKey = context.env.OPEN_API_KEY;
     const model = "text-davinci-003";
     const endpoint = "https://api.openai.com/v1/completions";
 
