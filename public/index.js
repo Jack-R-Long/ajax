@@ -15,7 +15,10 @@ function submitToWorker(event) {
     method: "POST",
     body: formData,
   })
-    .then((response) => response.text())
+    .then((response) => {
+        console.log(response)
+        response.text()
+    })
     .then((data) => {
       spinner.classList.add("hidden");
 
