@@ -11,7 +11,7 @@ export async function onRequestPost(context) {
     // Set up the request body
     const body = {
       model,
-      prompt: "Write a short story about a tricycle.",
+      prompt: generateEmailPrompt(input.get('recipient'), input.get('company'), input.get('description'), input.get('sentences')),
     };
 
     // Set up the request options
@@ -34,4 +34,21 @@ export async function onRequestPost(context) {
     return new Response("Error parsing JSON content", { status: 400 });
   }
 }
+
+function generateEmailPrompt(recipient, company, description, sentences) {
+    console.log(recipient, company, description, sentences);
+    let prompt = '';
+    if (company === "none") {
+      prompt = `Write a professional email to ${recipient}.
+      Write an email describing ${description}.
+      Total length ${sentences} sentences.`
+    } else {
+      prompt = `Write a professional email to ${recipient} who works at ${company}.  
+      Write an email describing ${description}.
+      Total length ${sentences} sentences.
+      `;
+    }
+    return prompt;
+  }
+
 export default onRequestPost;
