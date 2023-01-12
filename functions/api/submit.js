@@ -51,7 +51,7 @@ export async function onRequestPost(context) {
   // Send the request to the OpenAI API
   try {
     const response = await fetch(endpoint, options);
-    return new Response(completion.data.choices[0].text, { status: 200 });
+    return new Response(response.data.choices[0].text, { status: 200 });
   } catch (err) {
     return new Response("Error calling OpenAI API", { status: 500 });
   }
