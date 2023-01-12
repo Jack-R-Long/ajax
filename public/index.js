@@ -9,20 +9,11 @@ function submitToWorker(event) {
 
   // Get the form data
   const formData = new FormData(event.target);
-  const data = {};
-
-  // Iterate over the form data
-  for (const [key, value] of formData.entries()) {
-    data[key] = value;
-  }
 
   // Make the post request to the worker
   fetch("/api/submit", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
+    body: formData,
   })
     .then((response) => response.json())
     .then((data) => {
