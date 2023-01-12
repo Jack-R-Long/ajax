@@ -19,7 +19,6 @@ export async function onRequestPost(context) {
   if (length < 1 || length > 10) {
     return new Response("Sentences must be between 1 and 10", { status: 400 });
   }
-  return new Response(`Hello ${name}!`, { status: 200 });
 
   // OpenAI API key and config
   const apiKey = context.env.OPEN_API_KEY;
