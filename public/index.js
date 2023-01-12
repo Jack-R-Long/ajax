@@ -1,8 +1,11 @@
 const form = document.querySelector("form");
 form.addEventListener("submit", submitToWorker);
 
+const spinner = document.getElementById("loading-spinner");
+
 function submitToWorker(event) {
   event.preventDefault();
+  spinner.classList.remove("hidden");
 
   const formData = new FormData(event.target);
 
@@ -13,6 +16,8 @@ function submitToWorker(event) {
   })
     .then((response) => response.json())
     .then((data) => {
+      spinner.classList.add("hidden");
+
       // Handle the response data
       const responseData = data;
       console.log(responseData);
@@ -20,6 +25,7 @@ function submitToWorker(event) {
       document.getElementById("response").innerHTML = responseData;
     })
     .catch((error) => {
+      spinner.classList.add("hidden");
       console.error("Error:", error);
     });
 }

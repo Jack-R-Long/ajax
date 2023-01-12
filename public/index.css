@@ -1,98 +1,138 @@
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Form styles */
 form {
-    width: 320px;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .title {
-    text-align: center;
-    font-weight: bold;
-  }
+  width: 320px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 10px;
+}
 
-  /* Input and textarea styles */
-  input[type="text"], textarea {
-    width: 100%;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-radius: 4px;
-    padding: 12px 16px;
-    border: 1px solid #8AB5F9;
-    outline-color: #8AB5F9;
-  }
-  
-  /* Label styles */
-  label {
-    font-size: 16px;
-  }
-  
-  /* Slider styles */
-  input[type=range] {
-    -webkit-appearance: none;
-    width: 100%;
-    margin: 10px 0;
-  }
-  input[type=range]:focus {
-    outline: none;
-  }
-  input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 8px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 1px 1px 1px #000000;
-    background: #8AB5F9;
-    border-radius: 5px;
-  }
-  input[type=range]::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #000000;
-    border: 1px solid #000000;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background: #fff;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -7px;
-  }
-  input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #8AB5F9;
-  }
-  
-  /* Show the value of the slider */
-  output {
-    color: #fff;
-    padding-left: 20px;
-  }
+.title {
+  text-align: center;
+  font-weight: bold;
+}
 
-  input[type="submit"] {
-    width: 100%;
-    background-color: #8AB5F9;
-    font-size: 16px;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Input and textarea styles */
+input[type="text"],
+textarea {
+  width: 100%;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 12px 16px;
+  border: 1px solid #8ab5f9;
+  outline-color: #8ab5f9;
+}
+
+/* Label styles */
+label {
+  font-size: 16px;
+}
+
+/* Slider styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 10px 0;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000;
+  background: #8ab5f9;
+  border-radius: 5px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #8ab5f9;
+}
+
+/* Show the value of the slider */
+output {
+  color: #fff;
+  padding-left: 20px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #8ab5f9;
+  font-size: 16px;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Add hover effect to submit button */
+button[type="submit"]:hover {
+  background-color: #0d65f2;
+}
+
+/* Add active effect to submit button */
+button[type="submit"]:active {
+  background-color: #0947aa;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Loading spinner effects from loading.io */
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  /* Add hover effect to submit button */
-  input[type="submit"]:hover {
-    background-color: #0d65f2;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  /* Add active effect to submit button */
-  input[type="submit"]:active {
-    background-color: #0947aa;
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  }
-  
-  
+}
