@@ -33,7 +33,7 @@ export async function onRequestPost(context) {
   // Set up the request body
   const body = {
     model,
-    prompt: generateEmailPrompt(name, org, description, length),
+    prompt: 'write a short email to your friend',
     temperature: 0.7,
     max_tokens: 256,
   };
