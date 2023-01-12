@@ -9,10 +9,15 @@ function submitToWorker(event) {
 
   const formData = new FormData(event.target);
 
+  console.log(formData);
+
   // Make the post request to the worker
   fetch("/api/submit", {
     method: "POST",
-    body: formData,
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData),
   })
     .then((response) => response.json())
     .then((data) => {
