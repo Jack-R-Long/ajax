@@ -34,8 +34,8 @@ export async function onRequestPost(context) {
   const body = {
     model,
     prompt: generateEmailPrompt(name, org, description, length),
-    // temperature: 0.7,
-    // max_tokens: 256,
+    temperature: 0.7,
+    max_tokens: 256,
   };
 
   // Set up the request options
@@ -53,7 +53,7 @@ export async function onRequestPost(context) {
     const response = await fetch(endpoint, options);
     return new Response(response.data.choices[0].text, { status: 200 });
   } catch (err) {
-    return new Response("Error calling OpenAI API", { status: 500 });
+    return new Response(`Error calling OpenAI API ${err}`, { status: 500 });
   }
 }
 
