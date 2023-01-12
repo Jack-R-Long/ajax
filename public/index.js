@@ -22,6 +22,7 @@ function submitToWorker(event) {
       // Handle the response data
       const responseData = data;
       console.log(responseData);
+      console.log(JSON.stringify(responseData))
       //Show the response on the page
       document.getElementById("response").innerHTML = responseData;
     })
