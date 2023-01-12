@@ -1,22 +1,22 @@
 /** * POST /api/submit */
 export async function onRequestPost(context) {
   // Parse the request body
-  let recipient, company, description, sentences;
+  let name, org, description, length;
   try {
     const input = await context.request.formData();
-    recipient = input.get("recipient");
-    company = input.get("company");
+    name = input.get("name");
+    org = input.get("org");
     description = input.get("description");
-    sentences = input.get("sentences");
+    length = input.get("length");
   } catch (err) {
     return new Response("Error parsing JSON content", { status: 400 });
   }
 
   // Input validation
-  if (!recipient || !description || !sentences) {
+  if (!name || !description || !length) {
     return new Response("Missing required fields", { status: 400 });
   }
-  if (sentences < 1 || sentences > 10) {
+  if (length < 1 || length > 10) {
     return new Response("Sentences must be between 1 and 10", { status: 400 });
   }
 
@@ -33,7 +33,7 @@ export async function onRequestPost(context) {
   // Set up the request body
   const body = {
     model,
-    prompt: generateEmailPrompt(recipient, company, description, sentences),
+    prompt: generateEmailPrompt(name, org, description, length),
     temperature: 0.7,
     max_tokens: 256,
   };
