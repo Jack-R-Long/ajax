@@ -16,21 +16,23 @@ function submitToWorker(event) {
     body: formData,
   })
     .then((response) => {
-        console.log(response)
-        response.text()
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error(
+          "Error: " + response.status + " " + response.statusText
+        );
+      }
     })
     .then((data) => {
       spinner.classList.add("hidden");
 
-      // Handle the response data
-      const responseData = data;
-      console.log(responseData);
-      console.log(JSON.stringify(responseData))
+      console.log(data);
       //Show the response on the page
       document.getElementById("response").innerHTML = responseData;
     })
     .catch((error) => {
       spinner.classList.add("hidden");
-      console.error("Error:", error);
+      console.error(error);
     });
 }
