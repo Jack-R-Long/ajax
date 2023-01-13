@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <main>
+    <main class="container">
       <form>
         <h1 class="title">✍️ Ajax Email Writer</h1>
         <div class="input">
@@ -55,13 +55,15 @@
         </div>
 
         <button type="submit">
-            Submit
-            <div class="hidden" id="loading-spinner">
+            <p class="loaded">Submit</p>
+            <div class="loading" id="loading-spinner">
                 <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
             </div>
         </button>
       </form>
-      <p id="response"></p>
+      <div id="responseBox">
+        <pre id="response"></pre>
+      </div>
     </main>
     <script src="index.js"></script>
   </body>
