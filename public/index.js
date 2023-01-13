@@ -29,7 +29,7 @@ function submitToWorker(event) {
 
       console.log(data);
       //Show the response on the page
-      document.getElementById("response").innerHTML = responseData;
+      document.getElementById("response").innerHTML = data.choices[0].text;
     })
     .catch((error) => {
       spinner.classList.add("hidden");
