@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-form.addEventListener("submit", test);
+form.addEventListener("submit", submitToWorker);
 
 const spinner = document.getElementById("loading-spinner");
 const responseBox = document.getElementById("responseBox");
