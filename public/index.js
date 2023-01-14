@@ -5,7 +5,7 @@ const spinner = document.getElementById("loading-spinner");
 const responseBox = document.getElementById("responseBox");
 const submitButton = document.getElementById("submit-btn");
 
-function submitToWorker(event) {
+async function submitToWorker(event) {
   event.preventDefault();
 
   // Set loading state
@@ -34,9 +34,9 @@ function submitToWorker(event) {
       console.log(data);
 
       // Set loaded state
-      spinner.classList.remove("hidden");
-      responseBox.classList.add("hidden");
-      submitButton.disabled = true;
+      spinner.classList.add("hidden");
+      responseBox.classList.remove("hidden");
+      submitButton.disabled = false;
 
       //Show the response on the page
       document.getElementById("response").innerHTML = data.choices[0].text;
@@ -45,9 +45,9 @@ function submitToWorker(event) {
       console.error(error);
 
       // Set loaded state
-      spinner.classList.remove("hidden");
-      responseBox.classList.add("hidden");
-      submitButton.disabled = true;
+      spinner.classList.add("hidden");
+      responseBox.classList.remove("hidden");
+      submitButton.disabled = false;
 
       // Show the error on the page
       document.getElementById("response").innerHTML = "error";
