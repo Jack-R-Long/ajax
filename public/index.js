@@ -1,13 +1,17 @@
 const form = document.querySelector("form");
-form.addEventListener("submit", submitToWorker);
+form.addEventListener("submit", test);
 
 const spinner = document.getElementById("loading-spinner");
 const responseBox = document.getElementById("responseBox");
+const submitButton = document.getElementById("submit-btn");
 
 function submitToWorker(event) {
   event.preventDefault();
+
+  // Set loading state
   spinner.classList.remove("hidden");
   responseBox.classList.add("hidden");
+  submitButton.disabled = true;
 
   // Get the form data
   const formData = new FormData(event.target);
@@ -27,25 +31,35 @@ function submitToWorker(event) {
       }
     })
     .then((data) => {
-      spinner.classList.add("hidden");
-
       console.log(data);
+
+      // Set loaded state
+      spinner.classList.remove("hidden");
+      responseBox.classList.add("hidden");
+      submitButton.disabled = true;
+
       //Show the response on the page
-      responseBox.classList.remove("hidden");
       document.getElementById("response").innerHTML = data.choices[0].text;
     })
     .catch((error) => {
-      spinner.classList.add("hidden");
       console.error(error);
+
+      // Set loaded state
+      spinner.classList.remove("hidden");
+      responseBox.classList.add("hidden");
+      submitButton.disabled = true;
+
       // Show the error on the page
-      responseBox.classList.remove("hidden");
-      document.getElementById("response").innerHTML = "error"
+      document.getElementById("response").innerHTML = "error";
     });
 }
 
 function test(event) {
   event.preventDefault();
-  const response =   `
+  setTimeout(function () {
+    console.log("waiting");
+  }, 2000);
+  const response = `
   Subject: Cloudflare Workers vs Vercel's Serverless
   
   Dear Jack,
@@ -56,6 +70,6 @@ function test(event) {
   
   Best,
   [Name]
-  `
+  `;
   document.getElementById("response").innerHTML = response;
 }
